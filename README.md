@@ -35,15 +35,25 @@ There are 5 test cases that are put up as examples in the tests directory. The d
 
 1. sig.ml:
 This has been inherited from the previous assignment submission. However a few printing functions (including those which clean up variable names in the substitutions) have been added, apart from the logpro support. Functions used in solving for goals are as follows:
+
     i. prepend\_vars\_term: This prepends every variable in a term with an \_ and the number of times we have renamed the table each time we go to a new recursion depth.
+    
     ii. prepend\_vars\_: This prepends every variable in a clause with an \_ and the number of times we have renamed the table. (this function is necessary because we need to keep a track of the recursion depth and ensure we don't have scope issues due to clashes of variable names. note that scope issues don't arise because the numbers separated by \_ show the dfs path that we take in the graph that is formed by the edges being transfer of control between functions and the vertices being the list of all clauses, and this makes the graph a tree with n children of each node, where n is the number of clauses in our table)
+    
     iii. restrict\_substitution: Although this function hasn't been used anywhere, we can use this function to restrict a substitution to only the variables of a certain term.
+    
     iv. check\_depth\_le: As it will turn out, the substring before a variable name is in the form \_$n_1$\_$n_2$\_$n_3$...\_$n_k$ where $n_i$'s are numbers. This function acts as a filter to remove variables with depth > d if d = 0 and do nothing otherwise.
+    
     v. filter\_substitution: This function does a filter as described above.
+    
     vi. solve\_goal: This function is at the heart of the whole code. The explanation is as given in the comment in the code.
+    
     vii. solve\_goal\_list: This function solves a single goal (and is a wrapper function for the previous function).
+    
     viii. solve\_goal\_multiple\_: This function solves a list of goals and returns a substitution
+    
     ix. solve\_goal\_multiple: This function prints the aforementioned substitution list.
+    
     x. solve\_multiple\_goals: This function solves multiple lists of goals together.
 
 2. logpro.ml:
