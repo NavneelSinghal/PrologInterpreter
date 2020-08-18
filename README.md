@@ -1,7 +1,7 @@
-#Assignment 6
+# Assignment 6
 [comment]: <> (run make doc to generate a pdf of this file)
 
-##Assignment specifications:
+## Assignment specifications:
 
 In this assignment, you will write a simplified version of a Logic Programming interpreter in OCaml.
 You will first define an ML data type to represent the structure of a legitimate LogPro program.
@@ -16,12 +16,12 @@ You will first define an ML data type to represent the structure of a legitimate
 You need to take your implementation of unification to use as the parameter-passing mechanism. (Note: by pretending the predicate symbol is a function symbol, you can perform resolution of goals and program clauses).
 You also need to develop a back-tracking strategy to explore the resolution search space.   You need to be able to replace a goal by subgoals, as found by applying a unifier to the body of a program clause whose head unified with the chosen subgoal.
 
-##How to run the code:
+## How to run the code:
 Running make creates an executable called main. To run this, suppose x is the name of the database file for the logpro program. Then we need to run ./main x (i.e. pass x as a command line argument to main). The database gets displayed, and an interpreter shows up, which takes goals and finds the corresponding solutions to the goals, in a format similar to that of prolog (some examples have been given in the tests directory). To signal the end of the program, we need to pass a goal called exit.
 Either we can use the interpreter, or pass the program file p as ./main x < p instead (remember to have exit. at the end of p). This runs the file as if all the instructions were run one by one on the interpreter. 
 To run on the test cases in the tests directory, simply running make test should give the results of the run.
 
-##Test cases:
+## Test cases:
 There are 5 test cases that are put up as examples in the tests directory. The descriptions are as follows:
 
 1. boolean.pl: This test case gives a simple implementation of a boolean calculator that can find and, or, not, xor, xnor. Sample test cases are in boolean\_tests.pl.
@@ -31,7 +31,7 @@ There are 5 test cases that are put up as examples in the tests directory. The d
 5. sorting\_hat.pl: This test case implements a decision making mechanism for sorting students into houses in the Harry Potter universe. Sorting results can be found by doing instructions as in sorting\_hat\_tests.pl.
 6. dbhazards.pl: This test case has a test case that can possibly have an issue with implementations which don't mark the table variables with the branch they take. However since my implementation always marks the variables, this case works. The tests are as in dbhazards\_tests.pl.
 
-##Implementation details:
+## Implementation details:
 
 1. sig.ml:
 This has been inherited from the previous assignment submission. However a few printing functions (including those which clean up variable names in the substitutions) have been added, apart from the logpro support. Functions used in solving for goals are as follows:
